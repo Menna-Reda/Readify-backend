@@ -68,7 +68,7 @@ router.post("/sign-up", async (req, res) => {
         const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: "30d" });
         console.log(token);
         //save Token in cookie
-        res.cookie("token", token, { httpOnly: true, secure: false, sameSite: "Lax", maxAge: 1000 * 60 * 60 * 24 * 7 });
+        res.cookie("token", token, { httpOnly: false, secure: false, sameSite: "Lax", maxAge: 1000 * 60 * 60 * 24 * 7 });
         SendverifyEmail(req, res);
     } catch (err) {
         console.log(err);
@@ -112,7 +112,7 @@ router.post("/sign-in", async (req, res) => {
                 };
                 const token = jwt.sign({ id: existingUser._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
-                res.cookie("token", token, { httpOnly: true, secure: false, sameSite: "Lax", maxAge: 1000 * 60 * 60 * 24 * 7 });
+                res.cookie("token", token, { httpOnly: false, secure: false, sameSite: "Lax", maxAge: 1000 * 60 * 60 * 24 * 7 });
                 // res.cookie("isSubscribed", existingUser.isSubscribed, { 
                 //     httpOnly: true, 
                 //     secure: false, 
