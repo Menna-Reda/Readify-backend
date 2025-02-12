@@ -25,10 +25,11 @@ connectDB();
 app.use(cookieParser());
 app.use(
     cors({
-      origin: "https://keen-praline-992d7d.netlify.app"||"http://localhost:5173", // Allow requests from frontend
-      credentials: true, // Allow sending cookies
+      origin: ["https://keen-praline-992d7d.netlify.app", "http://localhost:5173"], 
+      credentials: true, 
     })
   );
+  
 
 app.use(express.json());
 
