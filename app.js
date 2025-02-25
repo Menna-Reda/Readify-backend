@@ -25,7 +25,7 @@ connectDB();
 app.use(cookieParser());
 app.use(
     cors({
-      origin: ["https://keen-praline-992d7d.netlify.app", "http://localhost:5173"], 
+      origin: ["https://keen-praline-992d7d.netlify.app", "http://localhost:5173", "https://readify-kappa.vercel.app"], 
       credentials: true, 
     })
   );
